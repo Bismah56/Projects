@@ -1,50 +1,74 @@
-let BASE_URL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies`;  //from currency
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissor = document.querySelector("#scissor");
+let userScore = document.querySelector("#user-score");
+let compScore = document.querySelector("#comp-score");
+let message = document.querySelector("#msg");
 
-const dropdowns = document.querySelectorAll(".dropdown select");
-const btn = document.querySelector("button");
-const fromCurr = document.querySelector(".From select");
-const toCurr = document.querySelector(".To select");
+let user_Score = 0;
+let comp_Score = 0;
 
-for(let select of dropdowns){
-    for(let currcode in countryList){
-        let newOption = document.createElement("option");
-        newOption.innerText = currcode;
-        newOption.value = currcode;
-        if (select.name === "from" && currcode==="USD") {
-            newOption.selected = "selected";
-        }
-        else if (select.name === "to" && currcode==="PKR") {
-            newOption.selected = "selected";
-        };
-        select.append(newOption);
+const result = (Usermove)=>{
+    
+    const computersMove = ()=>{
+        let moves = ["Rock","Paper","Scissor"];
+        let rndIdx = Math.floor(Math.random()*3);
+        console.log(moves[rndIdx]);
+        return moves[rndIdx];
     };
-    select.addEventListener("change",(evt)=>{
-        updateFlag(evt.target);
-    })
+    let Compmove = computersMove();
+
+    if (Usermove===Compmove){
+        message.innerText = "It was Draw.";
+        message.style.backgroundColor = "#081b31";
+    }
+    else if(Usermove==="Rock" && Compmove==="Paper"){
+        message.innerText = `You Lost! ${Compmove} beats ${Usermove}`;
+        message.style.backgroundColor = "Red";
+        comp_Score += 1;
+        compScore.innerText = comp_Score;
+    }
+    else if(Usermove==="Rock" && Compmove==="Scissor"){
+        message.innerText = `You Won! ${Usermove} beats ${Compmove}`;
+        message.style.backgroundColor = "Green";
+        user_Score += 1;
+        userScore.innerText = user_Score;
+    }
+    else if(Usermove==="Paper" && Compmove==="Rock"){
+        message.innerText = `You Won! ${Usermove} beats ${Compmove}`;
+        message.style.backgroundColor = "Green";
+        user_Score += 1;
+        userScore.innerText = user_Score;
+    }
+    else if(Usermove==="Paper" && Compmove==="Scissor"){
+        message.innerText = `You Lost! ${Compmove} beats ${Usermove}`;
+        message.style.backgroundColor = "Red";
+        comp_Score += 1;
+        compScore.innerText = comp_Score;
+    }
+    else if(Usermove==="Scissor" && Compmove==="Paper"){
+        message.innerText = `You Won! ${Usermove} beats ${Compmove}`;
+        message.style.backgroundColor = "Green";
+        user_Score += 1;
+        userScore.innerText = user_Score;
+    }
+    else if(Usermove==="Scissor" && Compmove==="Rock"){
+        message.innerText = `You Lost! ${Compmove} beats ${Usermove}`;
+        message.style.backgroundColor = "Red";
+        comp_Score += 1;
+        compScore.innerText = comp_Score;
+    };
 };
 
-const updateFlag = (element)=>{
-    let currencyCode = element.value;
-    let countryCode = countryList[currencyCode];
-    let source = `https://flagsapi.com/${countryCode}/shiny/64.png`;
-    let img = element.parentElement.querySelector("img");
-    img.src = source;
-};
-
-btn.addEventListener("click",async (evt)=>{
-    evt.preventDefault();
-    let input = document.querySelector(".amount input");
-    let amtValue = input.value;
-    if (amtValue==="" || amtValue<1) {
-        amtValue = 1;
-        input.value = 1;
-    };
-    console.log(fromCurr.value,toCurr.value);
-    const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}.json`;
-    let response = await fetch(URL);
-    let data = await response.json();
-    let rate = data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
-    let message = `${amtValue} ${fromCurr.value} = ${(amtValue*rate).toFixed(2)} ${toCurr.value}`;
-    let result = document.querySelector(".msg");
-    result.innerText = message;
+rock.addEventListener("click",()=>{
+    let move = "Rock";
+    result(move);
+});
+paper.addEventListener("click",()=>{
+    let move = "Paper";
+    result(move);
+});
+scissor.addEventListener("click",()=>{
+    let move = "Scissor";
+    result(move);
 });
