@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* body{
+    background-color: gray;
+    text-align: center;
+}
+.box{
+    border: 1px solid black;
+    width: 1000px;
+    padding: 100px 0;
+    margin: 0 auto;
+}
+h4{
+    color: blue;
+} */
+/* <600px , 601px, 768px, 992px , 1200px*/
+/* @media only screen and (max-width: 600px) and (orientation: portrait){
+    .box{
+        width: 100%;
+        background-color: blueviolet;
+    }
+} */
+/* @media only screen and (max-width: 600px) and (orientation: landscape) {
+    .box{
+        width: 100%;
+        background-color: orangered;
+        color: #fff;
+    }
+} */
+/* 
+@media only screen and (min-width: 601px) and (max-width: 768px){
+    .box{
+        width: 100%;
+        background-color: red;
+    }
+} */
+/* @media (min-width: 601px){
+    .box{
+        width: 100%;
+    }
+}
+@media (min-width: 768px){
+    .box{
+        width: 100%;
+    }
+}
+@media (min-width: 992px){
+    .box{
+        width: 100%;
+    }
+}
+@media (min-width: 601px){
+    .box{
+        width: 100%;
+    }
+} */
+main{
+    background: linear-gradient(#EBD4CB,#DA9F93);
+}
+.header ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 1em 1em;
+    background-color: #B6465F;
+    font-size: 1.3em;
+}
+li:hover{
+    border: 1px solid #EBD4CB;
+    padding: 4px;
+    border-radius: 3px;
+}
+h1{
+    padding: 1em 0em 0em 0em;
+    text-align: center;
+}
+.container{
+    margin-top: 1em;
+    padding-bottom: 1em;
+}
+.posters{
+    border: 2px solid black;
+    height: 60vh;
+    width: 75vw;
+    margin: 2em auto;
+    border-radius: 25px;
+}
+.one{
+    background: url(./img/poster4.png) center/cover no-repeat;
+}
+.ten{
+    margin-bottom: 0;
+}
+a{
+    text-decoration: none;
+    color: #EBD4CB;
+}
+footer{
+    background-color: #B6465F;
+    padding: 2em 2em;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    align-self: first baseline;
+}
