@@ -32,13 +32,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 10px;
+    display: none;
 }
-.ham-menu:hover {
+.ham-menu:hover{
     cursor: pointer;
 }
 .ham-menu span{
-    height: 4px;
+    height: 4.5px;
     width: 100%;
     background-color: var(--cineMaxColor1);
     border-radius: 2px;
@@ -399,7 +399,7 @@ footer{
     gap: 15px;
     height: fit-content;
     width: 33%;
-    padding: 2em 2.5em;
+    padding: 2.5em 2.5em;
 }
 .signin-form h1{
     color: #fff;
@@ -484,6 +484,7 @@ footer{
     width: 100%;
     height: 100%;
     padding-left: 10px;
+    margin-top: 5px;
 }
 .end2{
     background-color: black;
@@ -497,97 +498,92 @@ footer{
 i{
     font-size: 0.7em;
 }
-@media screen and (max-width: 500px){
-    .Contact,
-    #start{
-        width: auto;
-    }
-    .copyright{
-        width: auto;
-    }
-    .faq p{
-        padding: 5px 15px;
-        font-size: small;
-    }
-}
-/* Making homepage Responsive mobile & ipad */
-@media screen and (max-width: 1024px) {
+/* Mobile & Tablet Devices */
+@media only screen and (max-width: 1024px){
+    /* Home */
     #logo {
         display: none;
     }
-
-    .navBar {
+    .navBar{
         display: none;
     }
-
-    .heroSection {
+    .ham-menu{
+        display: inline-flex;
+    }
+    .heroSection{
         min-height: 70vh;
     }
-
-    #main {
-        font-size: 2.5rem;
-        width: 80%;
+    #main{
+        font-size: 1.75rem;
+        width: 100%;
         margin-top: 30px;
     }
-
-    #email {
+    #subs{
+        font-size: 1.2em;
+    }
+    #email{
         font-size: 1em;
     }
-
-    .subBtn {
-        display: block;
-        margin: 12px auto;
+    #start{
+        width: 60%;
     }
-
-    .sel {
+    .getstarted{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .sel{
         height: 35px;
         width: 100%;
         font-size: 1.1em;
     }
-
-    .swiper {
-        margin-top: 1em;
+    #trends{
+        padding: 2em;
     }
-
-    .links {
-        flex-direction: column;
-        gap: 0px;
-    }
-
-    .footer-item {
-        gap: 0px;
-    }
-
-    .footer-item a {
-        margin-top: 15px;
-    }
-
-    .more {
-        margin-top: 30px;
+    .swiper-slide{
+        height: 300px;
     }
     .reasons {
         flex-wrap: wrap;
         gap: 20px;
     }
+    h2{
+        padding-left: 1.5rem;
+    }
+    .faq{
+        padding: 2em 1.5em;
+    }
     .faq p {
         font-size: medium;
         font-weight: bold;
     }
-}
-@media screen and (max-width: 720px){
+    .links {
+        flex-direction: column;
+        gap: 0px;
+        padding-left: 1.5em;
+    }
+    footer{
+        padding-left: 1em;
+        padding-right: 1.5em;
+    }
+    .swiper {
+        margin-top: 1em;
+    }
+    /* Sign In */
     .background{
-        height: 85vh;
-        padding: 60px;
+        padding: 1em 0em;
     }
     .signin-form{
-        width: 60%;
-        height: auto;
-        padding: 30px;
+        width: 310px;
     }
-}
-
-@media screen and (min-width: 1024px) {
-    .ham-menu {
-        display: none;
+    .input,
+    #button{
+        height: 40px;
+    }
+    /* Contact Us */
+    .Contact {
+        width: auto;
     }
 }
